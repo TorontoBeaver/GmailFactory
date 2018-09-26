@@ -37,7 +37,7 @@ public class TestBase {
 	}
 
 	private static TestBase init() {
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+		System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(COMMAND_DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
@@ -90,10 +90,9 @@ public class TestBase {
 		takeScreenshot();
 		unHighlightElement(element);
 
-		element.sendKeys("src/main/java/com/qa/config/confog.properties");
+		element.sendKeys("/src/main/java/com/qa/config/config.properties");
 		takeScreenshot();
 	}
-
 
 	public void rightClick(WebElement element) {
 		waitForElementVisible(element);
@@ -102,7 +101,6 @@ public class TestBase {
 		takeScreenshot();
 		unHighlightElement(element);
 		new Actions(driver).contextClick(element).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
-
 
 	}
 
